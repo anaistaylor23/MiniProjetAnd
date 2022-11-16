@@ -7,10 +7,9 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-
 class MainViewModel : ViewModel() {
     val movies = MutableStateFlow<List<Movie>>(listOf())
-
+    val movie = MutableStateFlow<Movie?>(null)
 
     private val apikey = "fb07b2b57a58124103dc89332ac95ee7"
 
@@ -19,11 +18,11 @@ class MainViewModel : ViewModel() {
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
         .create(TmdbAPI::class.java)
-    private val onemovie = MutableStateFlow<DetailFilm?>(null)
+    private val serie = MutableStateFlow<DetailSerie?>(null)
 
     fun searchMovies(motcle: String) {
         viewModelScope.launch {
-            movies.value = service.getFilmParMotCle(apikey, motcle).results
+            movies.value = service.searchmovie(apikey, motcle).results
         }
     }
     fun lastMovie() {
@@ -31,19 +30,24 @@ class MainViewModel : ViewModel() {
             movies.value = service.lastMovie(apikey, "fr").results
         }
     }
-
-    fun oneMovie(id: String) {
+    fun lastPersonne(){
         viewModelScope.launch {
-            onemovie.value = service.oneMovie(id, apikey, "credits", "fr")
+            personnes.value = service.lastPersonne(apikey,"fr").results
         }
-
+    }
+    fun getMovieDetail(id: String) {
+        viewModelScope.launch {
+            service.movieDetails(id,apikey);
+        }
     }
 
-    val series = MutableStateFlow<List<Serie>>(listOf())
+
+
+    val series = MutableStateFlow<List<Series>>(listOf())
     val oneserie = MutableStateFlow<DetailSerie?>(null)
 
     val personnes = MutableStateFlow<List<Personnes>>(listOf())
-    fun searchSerie(motcle: String) {
+    fun SearchSeries(motcle: String) {
         viewModelScope.launch {
             series.value = service.getSerieParMotCle(motcle, apikey, "fr").results
         }
@@ -60,4 +64,6 @@ class MainViewModel : ViewModel() {
             oneserie.value = service.oneSerie(id, apikey, "credits", "fr")
         }
     }
+
+
 }

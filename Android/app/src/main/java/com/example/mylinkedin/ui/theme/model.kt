@@ -23,14 +23,14 @@ data class Movie(
     val vote_average: Double,
     val vote_count: Int
 )
-data class Serie(
+data class Series(
     val adult: Boolean,
     val backdrop_path: String,
     val first_air_date: String,
     val genre_ids: List<Int>,
     val id: Int,
     val media_type: String,
-    val nameseries: String,
+    val title: String,
     val origin_country: List<String>,
     val original_language: String,
     val original_name: String,
@@ -244,7 +244,7 @@ data class TmdbResultPersonne(
 )
 data class TmdbResultSeries(
     val page: Int,
-    val results: List<Serie>,
+    val results: List<Series>,
     val total_pages: Int,
     val total_results: Int
 )
