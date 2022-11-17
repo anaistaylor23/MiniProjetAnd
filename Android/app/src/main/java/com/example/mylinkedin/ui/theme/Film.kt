@@ -8,8 +8,9 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -21,9 +22,10 @@ val imageURL = "https://image.tmdb.org/t/p/w500"
 @Composable
 fun Film(navController: NavController, viewModel: MainViewModel) {
     val movies by viewModel.movies.collectAsState()
-    var title by rememberSaveable { mutableStateOf("") }
+
     if (movies.isEmpty()) {
         viewModel.lastMovie();
+
     } else {
         LazyVerticalGrid(
             GridCells.Adaptive(128.dp),

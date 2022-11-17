@@ -42,7 +42,7 @@ fun Profile(navController:NavController) {
         )
 
         Button(onClick = { navController.navigate("Film")}) {
-            Text("Bouton")
+            Text("Acces à TMDB ")
         }
 
     }
