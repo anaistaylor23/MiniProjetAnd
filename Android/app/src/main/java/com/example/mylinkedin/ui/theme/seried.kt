@@ -46,6 +46,8 @@ import coil.compose.rememberAsyncImagePainter
                 }
             )
 
+            Column() {
+
 
                 Spacer(modifier = Modifier.size(20.dp))
         Image(
@@ -64,6 +66,6 @@ import coil.compose.rememberAsyncImagePainter
                     textAlign = TextAlign.Center
                 )
     }
-}}}
+}}}}
 
 

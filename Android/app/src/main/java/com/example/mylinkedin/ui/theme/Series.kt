@@ -42,10 +42,10 @@ fun Serie(navController: NavController, viewModel: MainViewModel){
         Card(modifier = Modifier.clickable {
             navController.navigate("seried" + "/" + serie.id)
         }){
-            Text(text = serie.title)
+            Text(text = serie.original_name)
             Image(
                 painter = rememberAsyncImagePainter(imageURL + serie.poster_path),
-                contentDescription = null,
+                contentDescription = "",
                 modifier = Modifier.size(height = 128.dp, width = 70.dp)
             )
         }

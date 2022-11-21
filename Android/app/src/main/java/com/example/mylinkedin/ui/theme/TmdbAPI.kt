@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface TmdbAPI {
     @GET("movie/{movie_id}")
-    suspend fun movieDetails(@Path("movie_id") id: String, apikey: String): Movie
+    suspend fun movieDetails(@Path("movie_id")id: String, @Query("api_key") apikey: String,@Query("append_to_response")appendToResponse: String): DetailFilm
 
     @GET("search/movie")
     suspend fun searchmovie(@Query("api_key") apikey : String,@Query(" query") motcle : String) : TMBDResult
@@ -39,11 +39,6 @@ interface TmdbAPI {
     @GET("search/person?language=fr-FR")
     suspend fun searchPersonne(@Query("query") search: String, @Query("api_key") api_key: String): TmdbResultPersonne
 
-    @GET("movie/{id}")
-    suspend fun getFilm(@Path("id")id: String, @Query("api_key") apikey: String,@Query("append_to_response")appendToResponse: String): DetailFilm
-
-    @GET("movie/{id}")
-    suspend fun getSerie(@Path("id")id: String, @Query("api_key") apikey: String,@Query("append_to_response")appendToResponse: String): DetailSerie
 
 
 

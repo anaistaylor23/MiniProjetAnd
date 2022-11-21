@@ -38,7 +38,7 @@ class MainViewModel : ViewModel() {
     }
     fun getMovieDetail(id: String) {
         viewModelScope.launch {
-            service.movieDetails(id,apikey);
+            movie.value = service.movieDetails(id,apikey, "credits");
         }
     }
 
@@ -83,17 +83,5 @@ class MainViewModel : ViewModel() {
     }
 
 
-   fun infoMovie(id: String){
-       viewModelScope.launch {
-           movie.value = service.getFilm(id, apikey,"credits")
 
-       }
-   }
-
-    fun infoSerie(id: String){
-        viewModelScope.launch {
-            serie.value = service.getSerie(id, apikey, "credits")
-
-        }
     }
-}
