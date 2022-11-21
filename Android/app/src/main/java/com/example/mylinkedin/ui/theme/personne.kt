@@ -21,7 +21,7 @@ import coil.compose.rememberAsyncImagePainter
 fun Personnes(navController: NavHostController, viewModel: MainViewModel) {
 
     val personnes by viewModel.personnes.collectAsState()
-    Text(text = "Les différents acteurs sont")
+
     if (personnes.isEmpty()) {
         viewModel.lastPersonne();
     } else {
@@ -41,7 +41,7 @@ fun Personnes(navController: NavHostController, viewModel: MainViewModel) {
 @Composable
 fun personnesCell(navController: NavController, personnes: Personnes){
     Card(modifier = Modifier.clickable {
-        navController.navigate("seried" + "/" + personnes.id)
+        navController.navigate("personnesd" + "/" + personnes.id)
     }){
         Text(text = personnes.name)
         Image(

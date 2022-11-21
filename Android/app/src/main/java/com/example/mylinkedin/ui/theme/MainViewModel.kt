@@ -10,6 +10,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class MainViewModel : ViewModel() {
     val movies = MutableStateFlow<List<Movie>>(listOf())
     val movie = MutableStateFlow<Movie?>(null)
+    val motcle= String
 
     private val apikey = "fb07b2b57a58124103dc89332ac95ee7"
 
@@ -18,7 +19,7 @@ class MainViewModel : ViewModel() {
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
         .create(TmdbAPI::class.java)
-    private val serie = MutableStateFlow<DetailSerie?>(null)
+
 
     fun searchMovies(motcle: String) {
         viewModelScope.launch {
@@ -40,16 +41,24 @@ class MainViewModel : ViewModel() {
             service.movieDetails(id,apikey);
         }
     }
+    fun getMovieParMotCle(motcle: String) {
+        viewModelScope.launch {
+            service.getMovieParMotCle(motcle,apikey);
+        }
+    }
 
 
 
-    val series = MutableStateFlow<List<Series>>(listOf())
+    val series = MutableStateFlow<List<Serie>>(listOf())
+    val serie = MutableStateFlow<Serie?>(null)
     val oneserie = MutableStateFlow<DetailSerie?>(null)
 
     val personnes = MutableStateFlow<List<Personnes>>(listOf())
+    val personne = MutableStateFlow<Personnes?>(null)
+
     fun SearchSeries(motcle: String) {
         viewModelScope.launch {
-            series.value = service.getSerieParMotCle(motcle, apikey, "fr").results
+            series.value = service.searchSerie(motcle, apikey).results
         }
     }
 
@@ -58,12 +67,26 @@ class MainViewModel : ViewModel() {
             series.value = service.lastSerie(apikey, "fr").results
         }
     }
-
-    fun oneSerie(id: String) {
+    fun getSerieDetail(id: String) {
         viewModelScope.launch {
-            oneserie.value = service.oneSerie(id, apikey, "credits", "fr")
+            service.SerieDetails(id,apikey);
         }
     }
 
+    fun oneSerie(id: String) {
+        viewModelScope.launch {
+            oneserie.value = service.oneSerie(id, apikey, "credits")
+        }
+    }
 
+    fun getPersonneDetail(id: String) {
+        viewModelScope.launch {
+            service.detailPersonne(id, apikey)
+        }
+    }
+    fun SearchPersonne(motcle: String) {
+        viewModelScope.launch {
+            personnes.value = service.searchPersonne(motcle,apikey).results
+        }
+    }
 }

@@ -42,14 +42,16 @@ fun Film(navController: NavController, viewModel: MainViewModel) {
 @Composable
 fun filmCell(navController: NavController, movie: Movie){
     Card(modifier = Modifier.clickable {
-        navController.navigate("seried" + "/" + movie.id)
+        navController.navigate("filmd" + "/" + movie.id)
     }){
-    Text(text = movie.title)
+
     Image(
         painter = rememberAsyncImagePainter(imageURL + movie.poster_path),
         contentDescription = null,
-        modifier = Modifier.size(height = 128.dp, width = 70.dp)
-    )}
+        modifier = Modifier.size(height = 130.dp, width = 80.dp)
+    )
+        Text(text = movie.title)
+    }
 }
 
 

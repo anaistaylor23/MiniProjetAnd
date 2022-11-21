@@ -5,6 +5,9 @@
       <map>
         <entry key="../../../../../../layout/compose-model-1662705954106.xml" value="0.27280405405405406" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22871376811594202" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.20589447021484375" />
       </map>
     </option>
   </component>

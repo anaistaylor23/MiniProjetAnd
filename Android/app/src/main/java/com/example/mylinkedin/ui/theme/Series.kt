@@ -18,7 +18,7 @@ import coil.compose.rememberAsyncImagePainter
 
 
 @Composable
-fun Series(navController: NavController, viewModel: MainViewModel){
+fun Serie(navController: NavController, viewModel: MainViewModel){
     val series by viewModel.series.collectAsState()
 
 
@@ -38,9 +38,9 @@ fun Series(navController: NavController, viewModel: MainViewModel){
         }
 
     @Composable
-    fun serieCell(navController: NavController, serie: Series){
+    fun serieCell(navController: NavController, serie: Serie){
         Card(modifier = Modifier.clickable {
-            navController.navigate("filmd" + "/" + serie.id)
+            navController.navigate("seried" + "/" + serie.id)
         }){
             Text(text = serie.title)
             Image(
