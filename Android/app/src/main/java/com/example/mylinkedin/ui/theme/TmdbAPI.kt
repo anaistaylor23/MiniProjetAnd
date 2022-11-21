@@ -33,11 +33,18 @@ interface TmdbAPI {
     @GET("movie/{movie_id}")
     suspend fun SerieDetails(@Path("id") id: String, apikey: String): Serie
 
-    @GET("/3/search/movie")
-    suspend fun getMovieParMotCle(@Query("query") motcle: String,@Query("api_key") apikey: String): TMBDResult
     @GET("person/{id}?language=fr-FR")
     suspend fun detailPersonne(@Path("id") id: String, @Query("api_key") api_key: String): TmdbResultPersonne
 
     @GET("search/person?language=fr-FR")
     suspend fun searchPersonne(@Query("query") search: String, @Query("api_key") api_key: String): TmdbResultPersonne
+
+    @GET("movie/{id}")
+    suspend fun getFilm(@Path("id")id: String, @Query("api_key") apikey: String,@Query("append_to_response")appendToResponse: String): DetailFilm
+
+    @GET("movie/{id}")
+    suspend fun getSerie(@Path("id")id: String, @Query("api_key") apikey: String,@Query("append_to_response")appendToResponse: String): DetailSerie
+
+
+
 }

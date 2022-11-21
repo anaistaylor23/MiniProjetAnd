@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mylinkedin.R
@@ -33,14 +34,19 @@ fun Profile(navController:NavController) {
         )
         Text(
             text = "Anais TAYLOR",
-            style = MaterialTheme.typography.h4
+            style = MaterialTheme.typography.h4,
+            textAlign = TextAlign.Center
         )
         Text(
             text = "Étudiante en alternance à ISIS",
             modifier = Modifier
                 .padding(20.dp)
         )
-
+        Text(
+            text = "mail: anaisrose11@gmail.com",
+            style = MaterialTheme.typography.h6,
+            textAlign = TextAlign.Center
+        )
         Button(onClick = { navController.navigate("Film")}) {
             Text("Acces à TMDB ")
         }

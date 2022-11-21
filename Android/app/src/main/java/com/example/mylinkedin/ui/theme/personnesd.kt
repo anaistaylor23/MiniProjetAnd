@@ -1,6 +1,7 @@
 package com.example.mylinkedin.ui.theme
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -28,6 +29,8 @@ fun DetailPersonne (navController: NavController, id: String, viewModel: MainVie
         if (id == null) {
             "Aucun film n'est sélectionner";
         } else {
+            Column() {
+
 
             TopAppBar(
                 title =
@@ -38,11 +41,11 @@ fun DetailPersonne (navController: NavController, id: String, viewModel: MainVie
                         textAlign = TextAlign.Center
                     )
                 })
-        }
+
         Image(
             painter = rememberAsyncImagePainter("https://image.tmdb.org/t/p/w500" + personne!!.profile_path),
             contentDescription = null,
             modifier = Modifier.size(height = 128.dp, width = 70.dp)
         )
     }
-}
+}}}

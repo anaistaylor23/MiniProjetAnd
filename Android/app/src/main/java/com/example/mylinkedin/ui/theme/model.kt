@@ -267,3 +267,7 @@ data class Crew(
     val popularity: Double,
     val profile_path: String
 )
+data class MovieCast(
+    val cast: List<Personnes>,
+    val id: Int
+)

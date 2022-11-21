@@ -9,7 +9,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 class MainViewModel : ViewModel() {
     val movies = MutableStateFlow<List<Movie>>(listOf())
-    val movie = MutableStateFlow<Movie?>(null)
+    val movie = MutableStateFlow<DetailFilm?>(null)
     val motcle= String
 
     private val apikey = "fb07b2b57a58124103dc89332ac95ee7"
@@ -41,16 +41,12 @@ class MainViewModel : ViewModel() {
             service.movieDetails(id,apikey);
         }
     }
-    fun getMovieParMotCle(motcle: String) {
-        viewModelScope.launch {
-            service.getMovieParMotCle(motcle,apikey);
-        }
-    }
+
 
 
 
     val series = MutableStateFlow<List<Serie>>(listOf())
-    val serie = MutableStateFlow<Serie?>(null)
+    val serie = MutableStateFlow<DetailSerie?>(null)
     val oneserie = MutableStateFlow<DetailSerie?>(null)
 
     val personnes = MutableStateFlow<List<Personnes>>(listOf())
@@ -73,20 +69,31 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun oneSerie(id: String) {
-        viewModelScope.launch {
-            oneserie.value = service.oneSerie(id, apikey, "credits")
-        }
-    }
+
 
     fun getPersonneDetail(id: String) {
         viewModelScope.launch {
-            service.detailPersonne(id, apikey)
+            personnes.value=service.detailPersonne(id, apikey).results
         }
     }
     fun SearchPersonne(motcle: String) {
         viewModelScope.launch {
             personnes.value = service.searchPersonne(motcle,apikey).results
+        }
+    }
+
+
+   fun infoMovie(id: String){
+       viewModelScope.launch {
+           movie.value = service.getFilm(id, apikey,"credits")
+
+       }
+   }
+
+    fun infoSerie(id: String){
+        viewModelScope.launch {
+            serie.value = service.getSerie(id, apikey, "credits")
+
         }
     }
 }

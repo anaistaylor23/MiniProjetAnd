@@ -1,6 +1,8 @@
 package com.example.mylinkedin.ui.theme
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -30,6 +32,9 @@ import coil.compose.rememberAsyncImagePainter
 
             "Aucun serie n'est sélectionner"; }
         else {
+            Column() {
+
+
             TopAppBar(
                 title =
                 {
@@ -40,13 +45,25 @@ import coil.compose.rememberAsyncImagePainter
                     )
                 }
             )
-        }
+
+
+                Spacer(modifier = Modifier.size(20.dp))
         Image(
             painter = rememberAsyncImagePainter("https://image.tmdb.org/t/p/w500" + serie!!.poster_path),
             contentDescription = null,
             modifier = Modifier.size(height = 128.dp, width = 70.dp)
         )
+                Text(
+                    text = serie!!.overview,
+                    style = MaterialTheme.typography.h6,
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    text = serie!!.first_air_date,
+                    style = MaterialTheme.typography.h6,
+                    textAlign = TextAlign.Center
+                )
     }
-}
+}}}
 
 

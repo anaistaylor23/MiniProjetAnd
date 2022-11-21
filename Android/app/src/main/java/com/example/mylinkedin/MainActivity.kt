@@ -1,7 +1,6 @@
 package com.example.mylinkedin
 
 import android.os.Bundle
-import android.widget.Toolbar
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -42,9 +41,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun setSupportActionBar(toolbar: Toolbar) {
 
-    }
 
 
 
@@ -89,8 +86,12 @@ fun NavControl(viewModel: MainViewModel) {
             composable("Profil") {
                 Profile(navController = navController)
             }
+
             composable("Film") {
                 Film(navController = navController, viewModel = viewModel)
+            }
+            composable("Series") {
+                Serie(navController = navController, viewModel = viewModel)
             }
 
             composable("filmd" + "/{id}") { NavBackStack ->

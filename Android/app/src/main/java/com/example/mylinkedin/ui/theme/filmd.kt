@@ -1,6 +1,7 @@
 package com.example.mylinkedin.ui.theme
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -40,12 +41,28 @@ fun DetailFilm ( navController: NavController,id: String, viewModel: MainViewMod
                         style = MaterialTheme.typography.h6,
                         textAlign = TextAlign.Center
                     )
+
                 })
-        }
+
+            Spacer(modifier = Modifier.size(20.dp))
         Image(
             painter = rememberAsyncImagePainter("https://image.tmdb.org/t/p/w500" + movie!!.poster_path),
             contentDescription = null,
             modifier = Modifier.size(height = 128.dp, width = 70.dp)
         )
-    }
+            Text(
+                text= "Résumé",
+                textAlign = TextAlign.Center,
+            )
+            Text(
+                text= movie!!.overview,
+                textAlign = TextAlign.Center,
+            )
+            Text(
+                text= movie!!.release_date,
+                textAlign = TextAlign.Center,
+            )
+            
+
+    }}
 }
