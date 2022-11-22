@@ -10,7 +10,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class MainViewModel : ViewModel() {
     val movies = MutableStateFlow<List<Movie>>(listOf())
     val movie = MutableStateFlow<DetailFilm?>(null)
-    val motcle= String
+    val motcle = String
 
     private val apikey = "fb07b2b57a58124103dc89332ac95ee7"
 
@@ -47,7 +47,6 @@ class MainViewModel : ViewModel() {
 
     val series = MutableStateFlow<List<Serie>>(listOf())
     val serie = MutableStateFlow<DetailSerie?>(null)
-    val oneserie = MutableStateFlow<DetailSerie?>(null)
 
     val personnes = MutableStateFlow<List<Personnes>>(listOf())
     val personne = MutableStateFlow<Personnes?>(null)

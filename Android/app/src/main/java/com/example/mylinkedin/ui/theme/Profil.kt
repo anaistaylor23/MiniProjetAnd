@@ -2,7 +2,6 @@ package com.example.mylinkedin.ui.theme
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
@@ -34,18 +33,19 @@ fun Profile(navController:NavController) {
         )
         Text(
             text = "Anais TAYLOR",
-            style = MaterialTheme.typography.h4,
+            style = MaterialTheme.typography.h6,
             textAlign = TextAlign.Center
         )
         Text(
             text = "Étudiante en alternance à ISIS",
-            modifier = Modifier
-                .padding(20.dp)
+            style = MaterialTheme.typography.h4,
+
         )
         Text(
             text = "mail: anaisrose11@gmail.com",
-            style = MaterialTheme.typography.h6,
+            style = MaterialTheme.typography.h4,
             textAlign = TextAlign.Center
+
         )
         Button(onClick = { navController.navigate("Film")}) {
             Text("Acces à TMDB ")

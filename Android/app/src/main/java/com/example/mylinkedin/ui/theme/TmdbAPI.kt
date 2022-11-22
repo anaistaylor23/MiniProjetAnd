@@ -14,18 +14,11 @@ interface TmdbAPI {
     @GET("trending/movie/week")
     suspend fun lastMovie(@Query("api_key") apikey: String, @Query("language")language: String): TMBDResult
 
-    @GET("movie/{id}")
-    suspend fun oneMovie (@Path("id") id:String, @Query("api_key") apikey: String, @Query("append_to_response") credits: String, @Query("language")language: String): DetailFilm
-
-
     @GET("search/tv")
     suspend fun searchSerie (@Query("query") motcle: String,@Query("api_key") apikey: String): TmdbResultSeries
 
     @GET("trending/tv/week")
     suspend fun lastSerie(@Query("api_key") apikey: String, @Query("language")language: String): TmdbResultSeries
-
-    @GET("tv/{id}")
-    suspend fun oneSerie (@Path("id") id:String, @Query("api_key") apikey: String, @Query("append_to_response") credits: String): DetailSerie
 
     @GET("trending/person/week")
     suspend fun lastPersonne(@Query("api_key") apikey: String, @Query("language")language: String): TmdbResultPersonne

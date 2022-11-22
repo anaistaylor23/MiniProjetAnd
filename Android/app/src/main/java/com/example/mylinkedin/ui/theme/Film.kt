@@ -3,6 +3,7 @@ package com.example.mylinkedin.ui.theme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -40,17 +41,20 @@ fun Film(navController: NavController, viewModel: MainViewModel) {
 }
 
 @Composable
-fun filmCell(navController: NavController, movie: Movie){
+fun filmCell(navController: NavController, movie: Movie) {
     Card(modifier = Modifier.clickable {
         navController.navigate("filmd" + "/" + movie.id)
-    }){
+    }) {
+        Column() {
 
-    Image(
-        painter = rememberAsyncImagePainter(imageURL + movie.poster_path),
-        contentDescription = null,
-        modifier = Modifier.size(height = 130.dp, width = 80.dp)
-    )
-        Text(text = movie.title)
+
+            Image(
+                painter = rememberAsyncImagePainter(imageURL + movie.poster_path),
+                contentDescription = null,
+                modifier = Modifier.size(height = 130.dp, width = 90.dp)
+            )
+            Text(text = movie.title)
+        }
     }
 }
 

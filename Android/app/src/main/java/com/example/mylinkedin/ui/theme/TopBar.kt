@@ -30,21 +30,14 @@ fun TopBar(navController: NavController) {
     val currentRoute = navBackStackEntry?.destination?.route
 
     TopAppBar(
-        title = { Text(text = "Recherche", color = MaterialTheme.colors.primary) },
+        title = { Text(text = "TMDB", color = MaterialTheme.colors.primary) },
         modifier = Modifier.height(70.dp),
         actions = {
             OutlinedTextField(
                 value = motcle,
                 onValueChange = {
-                    motcle=motcle
+                    motcle=it
                 },
-                placeholder = {
-                    Text(
-                        "Recherche",
-                        color= Color.White
-                    )
-                },
-                maxLines = 1,
                 modifier = Modifier.padding(top = 2.dp),
                 singleLine = true,
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
@@ -58,9 +51,6 @@ fun TopBar(navController: NavController) {
                     }
                 }),
                     colors = TextFieldDefaults.textFieldColors(
-                        focusedIndicatorColor = Color.Transparent,
-                        unfocusedIndicatorColor = Color.Transparent,
-                        backgroundColor = Color.Transparent,
                         textColor = Color.Black
                     ),
                     textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.End),
