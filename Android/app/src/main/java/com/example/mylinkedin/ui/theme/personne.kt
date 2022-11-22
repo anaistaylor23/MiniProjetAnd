@@ -3,6 +3,7 @@ package com.example.mylinkedin.ui.theme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -39,16 +40,20 @@ fun Personnes(navController: NavHostController, viewModel: MainViewModel) {
 }
 
 @Composable
-fun personnesCell(navController: NavController, personnes: Personnes){
+fun personnesCell(navController: NavController, personnes: Personnes) {
     Card(modifier = Modifier.clickable {
         navController.navigate("personnesd" + "/" + personnes.id)
-    }){
-        Text(text = personnes.name)
-        Image(
-            painter = rememberAsyncImagePainter(imageURL + personnes.profile_path),
-            contentDescription = null,
-            modifier = Modifier.size(height = 128.dp, width = 70.dp)
-        )
+    }) {
+        Column() {
+
+
+            Text(text = personnes.name)
+            Image(
+                painter = rememberAsyncImagePainter(imageURL + personnes.profile_path),
+                contentDescription = null,
+                modifier = Modifier.size(height = 150.dp, width = 90.dp)
+            )
+        }
     }
 }
 

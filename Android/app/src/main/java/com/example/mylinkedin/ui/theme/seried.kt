@@ -19,7 +19,7 @@ import coil.compose.rememberAsyncImagePainter
 
 @Composable
 
- fun DetailSerie (navController: NavController, id: String, viewModel: MainViewModel) {
+fun DetailSerie(navController: NavController, id: String, viewModel: MainViewModel) {
 
     val viewModel: MainViewModel = viewModel;
     val serie by viewModel.serie.collectAsState()
@@ -29,43 +29,45 @@ import coil.compose.rememberAsyncImagePainter
     if (id != null) {
         viewModel.getSerieDetail(id);
         if (serie == null) {
-
-            "Aucun serie n'est sélectionner"; }
-        else {
+            Text("Aucun serie n'est sélectionner");
+        } else {
             Column() {
 
+                Text(id)
+                TopAppBar(
+                    title =
+                    {
+                        Text(
+                            text = serie!!.original_name,
+                            style = MaterialTheme.typography.h6,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                )
 
-            TopAppBar(
-                title =
-                {
+                Column() {
+
+
+                    Spacer(modifier = Modifier.size(20.dp))
+                    Image(
+                        painter = rememberAsyncImagePainter("https://image.tmdb.org/t/p/w500" + serie!!.poster_path),
+                        contentDescription = null,
+                        modifier = Modifier.size(height = 190.dp, width = 110.dp)
+                    )
                     Text(
-                        text = serie!!.original_name,
+                        text = serie!!.overview,
+                        style = MaterialTheme.typography.h6,
+                        textAlign = TextAlign.Center
+                    )
+                    Text(
+                        text = serie!!.first_air_date,
                         style = MaterialTheme.typography.h6,
                         textAlign = TextAlign.Center
                     )
                 }
-            )
-
-            Column() {
-
-
-                Spacer(modifier = Modifier.size(20.dp))
-        Image(
-            painter = rememberAsyncImagePainter("https://image.tmdb.org/t/p/w500" + serie!!.poster_path),
-            contentDescription = null,
-            modifier = Modifier.size(height = 128.dp, width = 70.dp)
-        )
-                Text(
-                    text = serie!!.overview,
-                    style = MaterialTheme.typography.h6,
-                    textAlign = TextAlign.Center
-                )
-                Text(
-                    text = serie!!.first_air_date,
-                    style = MaterialTheme.typography.h6,
-                    textAlign = TextAlign.Center
-                )
+            }
+        }
     }
-}}}}
+}
 
 

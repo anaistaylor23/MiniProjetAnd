@@ -64,7 +64,7 @@ class MainViewModel : ViewModel() {
     }
     fun getSerieDetail(id: String) {
         viewModelScope.launch {
-            service.SerieDetails(id,apikey);
+            serie.value= service.SerieDetails(id,apikey);
         }
     }
 

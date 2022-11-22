@@ -33,17 +33,17 @@ fun Profile(navController:NavController) {
         )
         Text(
             text = "Anais TAYLOR",
-            style = MaterialTheme.typography.h6,
+            style = MaterialTheme.typography.h5,
             textAlign = TextAlign.Center
         )
         Text(
             text = "Étudiante en alternance à ISIS",
-            style = MaterialTheme.typography.h4,
+            style = MaterialTheme.typography.h6,
 
         )
         Text(
             text = "mail: anaisrose11@gmail.com",
-            style = MaterialTheme.typography.h4,
+            style = MaterialTheme.typography.h6,
             textAlign = TextAlign.Center
 
         )

@@ -38,8 +38,11 @@ fun TopBar(navController: NavController) {
                 onValueChange = {
                     motcle=it
                 },
-                modifier = Modifier.padding(top = 2.dp),
-                singleLine = true,
+                placeholder ={
+                    Text(text = "Rechercher")
+                },
+
+
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = {
                     keyboardController?.hide();

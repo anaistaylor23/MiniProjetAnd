@@ -53,11 +53,11 @@ fun DetailFilm ( navController: NavController,id: String, viewModel: MainViewMod
             Column() {
 
 
-                Spacer(modifier = Modifier.size(20.dp))
+                Spacer(modifier = Modifier.size(50.dp))
                 Image(
                     painter = rememberAsyncImagePainter("https://image.tmdb.org/t/p/w500" + movie!!.poster_path),
                     contentDescription = null,
-                    modifier = Modifier.size(height = 128.dp, width = 70.dp)
+                    modifier = Modifier.size(height = 190.dp, width = 110.dp)
                 )
                 Text(
                     text = "Résumé",
@@ -82,7 +82,7 @@ fun DetailFilm ( navController: NavController,id: String, viewModel: MainViewMod
 
 
                                     AsyncImage(
-                                        model = url + cast.profile_path,
+                                        model = url +cast.profile_path,
                                         contentDescription = "Cast",
                                     )
                                     Spacer(Modifier.height(20.dp))

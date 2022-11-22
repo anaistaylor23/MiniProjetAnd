@@ -3,6 +3,7 @@ package com.example.mylinkedin.ui.theme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -38,16 +39,20 @@ fun Serie(navController: NavController, viewModel: MainViewModel){
         }
 
     @Composable
-    fun serieCell(navController: NavController, serie: Serie){
+    fun serieCell(navController: NavController, serie: Serie) {
         Card(modifier = Modifier.clickable {
             navController.navigate("seried" + "/" + serie.id)
-        }){
-            Text(text = serie.original_name)
-            Image(
-                painter = rememberAsyncImagePainter(imageURL + serie.poster_path),
-                contentDescription = "",
-                modifier = Modifier.size(height = 128.dp, width = 70.dp)
-            )
+        }) {
+            Column() {
+
+
+                Text(text = serie.original_name)
+                Image(
+                    painter = rememberAsyncImagePainter(imageURL + serie.poster_path),
+                    contentDescription = "",
+                    modifier = Modifier.size(height = 150.dp, width = 90.dp)
+                )
+            }
         }
     }
 

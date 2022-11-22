@@ -51,7 +51,7 @@ fun filmCell(navController: NavController, movie: Movie) {
             Image(
                 painter = rememberAsyncImagePainter(imageURL + movie.poster_path),
                 contentDescription = null,
-                modifier = Modifier.size(height = 130.dp, width = 90.dp)
+                modifier = Modifier.size(height = 150.dp, width = 90.dp)
             )
             Text(text = movie.title)
         }
