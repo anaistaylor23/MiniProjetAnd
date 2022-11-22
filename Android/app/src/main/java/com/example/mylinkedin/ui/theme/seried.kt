@@ -55,12 +55,17 @@ fun DetailSerie(navController: NavController, id: String, viewModel: MainViewMod
                         modifier = Modifier.size(height = 190.dp, width = 110.dp)
                     )
                     Text(
+                        text = "Résumé",
+                        textAlign = TextAlign.Center,
+                    )
+                    Text(
                         text = serie!!.overview,
                         style = MaterialTheme.typography.h6,
                         textAlign = TextAlign.Center
                     )
+                    
                     Text(
-                        text = serie!!.first_air_date,
+                        text = "Date de sortie : " +serie!!.first_air_date,
                         style = MaterialTheme.typography.h6,
                         textAlign = TextAlign.Center
                     )
